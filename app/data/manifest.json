@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-08-28T05:32:41Z",
+  "products": 210,
+  "pages": 122,
+  "productFiles": [
+    "products-0.json",
+    "products-1.json",
+    "products-2.json",
+    "products-3.json",
+    "products-4.json",
+    "products-5.json"
+  ],
+  "pageFiles": [
+    "pages-0.json",
+    "pages-1.json",
+    "pages-2.json",
+    "pages-3.json"
+  ],
+  "errors": [
+    {
+      "url": "https://www.smartklimatisieren.de/klimaanlagen/mono-split-klimaanlage",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "url": "https://www.smartklimatisieren.de/local/stolberg/waermepumpe-stolberg",
+      "error": "RemoteDisconnected: Remote end closed connection without response"
+    },
+    {
+      "url": "https://www.smartklimatisieren.de/local/wassenberg/split-klimaanlage-wassenberg",
+      "error": "RemoteDisconnected: Remote end closed connection without response"
+    }
+  ]
+}

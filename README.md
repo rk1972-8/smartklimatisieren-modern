@@ -1,15 +1,19 @@
-# smartklimatisieren – moderner Website-Entwurf
+# smartklimatisieren – moderne Unternehmenswebsite
 
-Moderner, responsiver Website-Entwurf für **smartklimatisieren.de**. Die Seite präsentiert Klimaanlagen, Wärmepumpen, Kältetechnik, regionale Referenzen und Beratungsangebote ohne Shop, Preise oder Warenkorb.
+Moderner, responsiver Ersatz für **smartklimatisieren.de**. Die Website präsentiert Klimaanlagen, Wärmepumpen, Kältetechnik, regionale Referenzen und Beratungsangebote ohne Shop, Preise oder Warenkorb.
 
 ## Enthalten
 
-- moderne responsive Startseite
-- Leistungsschwerpunkte und Lösungskatalog ohne Preise
-- regionale Referenzprojekte und Kundenstimme
-- Ratgeber- und SEO-Bereiche
-- Kontakt- und Anfragebereich
-- Social-Preview und Seitenmetadaten
+- modernisierte Wortmarke `smartklimatisieren` ohne `.de`
+- responsive Startseite und vollständige Mehrseiten-Navigation
+- 210 Produktdetailseiten mit technischen Inhalten – ohne Shoppreise
+- übernommene Ratgeber, Referenzen und regionale Landingpages
+- durchsuchbarer und filterbarer Produktkatalog
+- Smart-Anfrage mit Freitext-Erkennung und strukturierter E-Mail-Zusammenfassung
+- individuelle Metadaten, strukturierte Daten, Sitemap und Robots-Datei
+- Social-Preview für geteilte Links
+
+Die Live-Domain wird durch dieses Repository nicht automatisch verändert. Produktbilder werden in der Vorschau weiterhin aus dem bestehenden Plenty-CDN geladen.
 
 ## Lokal starten
 
@@ -19,3 +23,10 @@ pnpm dev
 ```
 
 Danach ist die Vorschau unter `http://localhost:3000` erreichbar.
+
+## Prüfen
+
+```bash
+pnpm lint
+pnpm build
+```

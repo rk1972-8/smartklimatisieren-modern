@@ -15,6 +15,7 @@ const display = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  applicationName: 'smartklimatisieren',
   metadataBase: new URL(siteUrl),
   title: 'Klimaanlagen & Wärmepumpen im Kreis Heinsberg | smartklimatisieren',
   description:
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
       'Klimaanlagen, Wärmepumpen und Kältetechnik für Geilenkirchen und den Kreis Heinsberg.',
     images: ['/og.png'],
   },
+  icons: { icon: '/icon.png' },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

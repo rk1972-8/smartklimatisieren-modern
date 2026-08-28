@@ -1,3 +1,7 @@
+/* eslint-disable @next/next/no-html-link-for-pages, @next/next/no-img-element */
+import { SmartInquiry } from './components/smart-inquiry';
+import { SiteFooter, SiteHeader } from './components/site-shell';
+
 const services = [
   {
     number: '01',
@@ -70,29 +74,7 @@ const projects = [
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="smartklimatisieren Startseite">
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-          <span>
-            smart<strong>klimatisieren</strong>
-          </span>
-        </a>
-
-        <nav aria-label="Hauptnavigation">
-          <a href="#leistungen">Leistungen</a>
-          <a href="#loesungen">Lösungen</a>
-          <a href="#projekte">Projekte</a>
-          <a href="#wissen">Wissen</a>
-        </nav>
-
-        <a className="header-cta" href="#anfrage">
-          Projekt anfragen <span aria-hidden="true">↗</span>
-        </a>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="top">
         <div className="hero-media" aria-hidden="true">
@@ -112,7 +94,7 @@ export default function Home() {
             fachgerecht installiert und persönlich betreut.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#anfrage">
+            <a className="button button-primary" href="/anfrage">
               Kostenlose Erstberatung <span aria-hidden="true">→</span>
             </a>
             <a className="text-link" href="#projekte">
@@ -141,7 +123,7 @@ export default function Home() {
         </div>
         <div className="service-list">
           {services.map((service) => (
-            <a href="#loesungen" className="service-row" key={service.number}>
+            <a href={service.number === '01' ? '/klimaanlagen' : service.number === '02' ? '/waermepumpe' : '/kaeltetechnik'} className="service-row" key={service.number}>
               <span className="service-number">{service.number}</span>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
@@ -171,7 +153,7 @@ export default function Home() {
               <p className="card-label">{solution.label}</p>
               <h3>{solution.title}</h3>
               <p>{solution.text}</p>
-              <a href="#anfrage">Lösung anfragen <span aria-hidden="true">↗</span></a>
+              <a href="/anfrage">Lösung anfragen <span aria-hidden="true">↗</span></a>
             </article>
           ))}
         </div>
@@ -181,7 +163,7 @@ export default function Home() {
             <strong>Produktkatalog ohne Shop</strong>
             <span>Technische Daten, Varianten und Herstellerunterlagen bleiben vollständig sichtbar.</span>
           </div>
-          <a href="#anfrage">Alle Systeme entdecken <span aria-hidden="true">→</span></a>
+          <a href="/produkte">Alle Systeme entdecken <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -220,7 +202,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <a className="outline-button" href="#anfrage">Weitere Referenzen <span aria-hidden="true">→</span></a>
+        <a className="outline-button" href="/referenzen">Weitere Referenzen <span aria-hidden="true">→</span></a>
       </section>
 
       <section className="testimonial" aria-label="Kundenstimme">
@@ -242,9 +224,9 @@ export default function Home() {
           </p>
         </div>
         <div className="article-list">
-          <a href="#anfrage"><span>Ratgeber · 6 Min.</span><h3>Welche Klimaanlage passt zu welchem Raum?</h3><i aria-hidden="true">↗</i></a>
-          <a href="#anfrage"><span>Wärmepumpe · 8 Min.</span><h3>Lohnt sich eine Wärmepumpe im Altbau?</h3><i aria-hidden="true">↗</i></a>
-          <a href="#anfrage"><span>Service · 4 Min.</span><h3>Warum regelmäßige Wartung Energie spart</h3><i aria-hidden="true">↗</i></a>
+          <a href="/infos/klimaanlagen-bauarten/bauarten-klimaanlagen"><span>Ratgeber · 6 Min.</span><h3>Welche Klimaanlage passt zu welchem Raum?</h3><i aria-hidden="true">↗</i></a>
+          <a href="/waermepumpe"><span>Wärmepumpe · 8 Min.</span><h3>Lohnt sich eine Wärmepumpe im Altbau?</h3><i aria-hidden="true">↗</i></a>
+          <a href="/wissen"><span>Service · 4 Min.</span><h3>Warum regelmäßige Wartung Energie spart</h3><i aria-hidden="true">↗</i></a>
         </div>
       </section>
 
@@ -262,34 +244,9 @@ export default function Home() {
           </div>
         </div>
 
-        <form action="mailto:info@smartklimatisieren.de" method="post" encType="text/plain">
-          <label>Name<input required name="Name" type="text" autoComplete="name" placeholder="Ihr Name" /></label>
-          <label>E-Mail<input required name="E-Mail" type="email" autoComplete="email" placeholder="name@beispiel.de" /></label>
-          <label>Worum geht es?
-            <select name="Anliegen" defaultValue="">
-              <option value="" disabled>Bitte auswählen</option>
-              <option>Klimaanlage</option>
-              <option>Wärmepumpe</option>
-              <option>Kältetechnik</option>
-              <option>Service oder Reparatur</option>
-            </select>
-          </label>
-          <label>Nachricht<textarea required name="Nachricht" rows={4} placeholder="Beschreiben Sie kurz Ihr Vorhaben …" /></label>
-          <button type="submit">Anfrage vorbereiten <span aria-hidden="true">→</span></button>
-          <small>Das Formular öffnet Ihr E-Mail-Programm. Ihre Daten werden nicht auf dieser Vorschauseite gespeichert.</small>
-        </form>
+        <SmartInquiry compact />
       </section>
-
-      <footer>
-        <div className="footer-brand">
-          <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-          <span>smart<strong>klimatisieren</strong></span>
-        </div>
-        <div><strong>mifrro Vertriebs GmbH</strong><span>Von-Braun-Str. 25a · 52511 Geilenkirchen</span></div>
-        <div><a href="tel:+4924519116960">02451 911 69 60</a><a href="mailto:info@smartklimatisieren.de">info@smartklimatisieren.de</a></div>
-        <div><a href="#top">Impressum</a><a href="#top">Datenschutz</a></div>
-        <p>© 2026 smartklimatisieren</p>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
